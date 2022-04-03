@@ -1,13 +1,12 @@
 import "./App.css";
 import React, { useEffect, useRef, useState } from "react";
 import Chart from "./components/Chart";
-import TeamName from "./components/TeamName";
 
 const ldata = [
   { label: "Guy kaplan", y: 0 },
-  { label: "Mike Kogan", y: 100 },
-  { label: "Mark Segal", y: 200 },
-  { label: "Itzik Naim", y: 50 },
+  { label: "Mike Kogan", y: 0 },
+  { label: "Mark Segal", y: 0 },
+  { label: "Itzik Naim", y: 0 },
   { label: "Nisim Ben Saadon", y: 0 },
   { label: "Itai Karas", y: 0 },
   { label: "Nitzan Shwartz", y: 0 },
@@ -17,25 +16,16 @@ const ldata = [
   { label: "Ron Resnik", y: 0 },
   { label: "Itay Meirson", y: 0 },
   { label: "Ariel Ben", y: 0 },
-  { label: "Ariel Ben", y: 0 },
 ];
 
 function App() {
   const MINUTE_MS = 10000;
   const [data, setData] = useState(ldata);
-  // const prevDataRef = useRef(data);
   const [tallestHeights, setTallestHeights] = useState([[], [], []]);
   const makeGrid = {
     display: "grid",
     gridTemplateColumns: `repeat(${data.length.toString()}, 1fr)`,
   };
-  // useEffect(() => {
-  //   prevDataRef.current = ldata;
-  //   setData(() => {
-  //     return [...prevDataRef.current];
-  //   });
-  // }, [ldata]);
-  // console.log(data);
 
   useEffect(() => {
     const heightsArray = data.map((item) => item.y);
@@ -67,13 +57,10 @@ function App() {
       fetch("http://52.186.51.196:8008/shares")
         .then((response) => response.json())
         .then((data) => {
-          console.log("Interval is running");
           data.forEach((element) => {
             try {
               rdata[element.id - 1].label = element.company_id;
               rdata[element.id - 1].y = parseInt(element.score);
-              // setData(...rdata)
-              console.log(data);
             } catch {
               console.log(element);
               console.log("fetch sucsseful");
@@ -120,7 +107,9 @@ function App() {
       <div className="teamname-container" style={makeGrid}>
         {data.map((chartData, index) => (
           <div className="name-chartgrid" key={index}>
-            <TeamName data={data} chartData={chartData} />
+            <div className="teamname-box">
+              <p className="teamname">{chartData.label}</p>
+            </div>
           </div>
         ))}
       </div>
