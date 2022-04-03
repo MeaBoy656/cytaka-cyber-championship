@@ -5,10 +5,10 @@ import TeamName from "./components/TeamName";
 
 const ldata = [
   { label: "301", y: 0 },
-  { label: "302", y: 0 },
-  { label: "303", y: 0 },
-  { label: "304", y: 0 },
-  { label: "305", y: 0 },
+  { label: "302", y: 90 },
+  { label: "303", y: 100 },
+  { label: "304", y: 150 },
+  { label: "305", y: 300 },
   { label: "306", y: 0 },
   { label: "307", y: 0 },
   { label: "308", y: 0},
@@ -19,15 +19,16 @@ const ldata = [
 function App() {
   const MINUTE_MS = 10000;
   const [data, setData] = useState(ldata);
-  const prevDataRef = useRef(data);
+  // const prevDataRef = useRef(data);
   const [tallestHeights, setTallestHeights] = useState([[], [], []]);
 
-  useEffect(() => {
-    prevDataRef.current = ldata;
-    setData(() => {
-      return [...prevDataRef.current];
-    });
-  }, [ldata]);
+  // useEffect(() => {
+  //   prevDataRef.current = ldata;
+  //   setData(() => {
+  //     return [...prevDataRef.current];
+  //   });
+  // }, [ldata]);
+  console.log(data);
 
   useEffect(() => {
     const heightsArray = data.map((item) => item.y);
@@ -53,13 +54,16 @@ function App() {
   }, [data, ldata]);
 
   useEffect(() => {
-    setTimeout(() => {
+    setInterval(() => {
       let rdata = data;
       fetch("http://52.224.2.235:8008/shares")
         .then((response) => response.json())
         .then((data) => {
           data.forEach((element) => {
+            console.log("Interval is running");
             try {
+              ldata=
+              console.log(element);
               rdata[element.id - 1].label = element.company_id;
               rdata[element.id - 1].y = parseInt(element.score);
             } catch {
@@ -69,7 +73,7 @@ function App() {
           setData(rdata);
         });
     }, MINUTE_MS);
-  }, [data]);
+  }, []);
 
   return (
     <div className="app-container">
