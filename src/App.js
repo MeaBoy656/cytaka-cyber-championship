@@ -4,14 +4,14 @@ import Chart from "./components/Chart";
 import TeamName from "./components/TeamName";
 
 const ldata = [
-  { label: "Team 301", y: 0 },
+  { label: "Teamsss 30112712984769182746987", y: 100 },
   { label: "Team 302", y: 0 },
   { label: "Team 303", y: 0 },
   { label: "Team 304", y: 0 },
   { label: "Team 305", y: 0 },
   { label: "Team 306", y: 0 },
   { label: "Team 307", y: 0 },
-  { label: "Team 308", y: 0},
+  { label: "Team 308", y: 0 },
   { label: "Team 309", y: 0 },
   { label: "Team 310", y: 0 },
 ];
@@ -56,21 +56,21 @@ function App() {
   useEffect(() => {
     setInterval(() => {
       let rdata = data;
-      fetch("http://52.224.2.235:8008/shares")
+      fetch("http://52.186.51.196:8008/shares")
         .then((response) => response.json())
         .then((data) => {
-          data.forEach((element) => {
-            console.log("Interval is running");
+          console.log("Interval is running");
+          data.forEach((element) => {     
             try {
-              ldata=
-              console.log(element);
               rdata[element.id - 1].label = element.company_id;
               rdata[element.id - 1].y = parseInt(element.score);
+              // setData(...rdata)
+              console.log(data);
             } catch {
               console.log(element);
             }
           });
-          setData(rdata);
+          setData([...rdata]);
         });
     }, MINUTE_MS);
   }, []);

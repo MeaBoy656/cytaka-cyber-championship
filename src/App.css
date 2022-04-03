@@ -61,7 +61,7 @@ body {
   grid-row: 1;
   align-self: center;
   position: relative;
-  width: calc((20vw + 10vh) / 2);
+  width: calc((35vw + 20vh) / 2);
   height: initial;
 }
 
@@ -95,7 +95,7 @@ body {
   padding-inline: 2vw;
   display: grid;
   filter: blur(calc((15vw + 15vh) / 2));
-  grid-template-columns: repeat(10, auto);
+  grid-template-columns: repeat(10, 1fr);
 }
 
 .chart-container {
@@ -105,7 +105,7 @@ body {
   margin-inline: 5vw;
   padding-inline: 2vw;
   display: grid;
-  grid-template-columns: repeat(10, auto);
+  grid-template-columns: repeat(10, 1fr);
 }
 .chart-container-3 {
   z-index: 1000;
@@ -157,7 +157,7 @@ body {
   margin-inline: 5vw;
   padding-inline: 2vw;
   display: grid;
-  grid-template-columns: repeat(10, auto);
+  grid-template-columns: repeat(10, 1fr);
 }
 
 .rectangle {
@@ -169,10 +169,9 @@ body {
   width: fit-content;
 }
 
-
 .teamname-box {
   align-self: center;
-  padding-inline: 2vw;
+  padding-inline: 1vw;
   padding-block: 2vh;
   margin-inline: 0.5vw;
   margin-block: 3vh;
@@ -183,7 +182,7 @@ body {
 
 .teamname {
   align-self: center;
-  margin-block: auto;
+  /* margin-block: auto; */
   word-break: break-word;
   color: var(--clr-white);
   font-size: calc((1.6vw + 1.6vh) / 2);
