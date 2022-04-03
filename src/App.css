@@ -1,0 +1,190 @@
+*::after,
+*::before,
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Source Code Pro", monospace;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+:root {
+  --clr-black: #000000;
+  --clr-white: #ffffff;
+  --clr-dark: #282828;
+  --fw-light: 300;
+  --fw-reqular: 400;
+  --fw-bold: 600;
+}
+
+body {
+  font-weight: var(--fw-reqular);
+  background-color: #0e0d0a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.app-container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.title-container {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  margin-top: 2vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.title,
+.title-background {
+  grid-column: 1;
+}
+
+.title-background {
+  margin-inline: auto;
+  grid-row: 2;
+  width: calc((58vw + 58vh) / 2);
+  height: calc((6vw + 6vh) / 2);;
+  background-color: var(--clr-dark);
+}
+
+#logo {
+  margin-inline: auto;
+  grid-row: 1;
+  align-self: center;
+  position: relative;
+  width: calc((20vw + 10vh) / 2);
+  height: initial;
+}
+
+.title-container > .title {
+  grid-row: 2;
+  align-self: center;
+  font-size: calc((4vw + 4vh) / 2);
+  font-weight: 600;
+  position: relative;
+  padding: 0.3em;
+  height: fit-content;
+  text-align: center;
+  color: var(--clr-white);
+  width: fit-content;
+  text-align: center;
+  color: var(--clr-white);
+}
+
+.glow,
+.chart-container,
+.chart-container-3,
+.chart-container-4 {
+  grid-column: 1;
+}
+
+.glow {
+  z-index: 1;
+  opacity: 100%;
+  grid-row: 2;
+  margin-inline: 5vw;
+  padding-inline: 2vw;
+  display: grid;
+  filter: blur(calc((15vw + 15vh) / 2));
+  grid-template-columns: repeat(10, auto);
+}
+
+.chart-container {
+  z-index: 2;
+  position: relative;
+  grid-row: 2;
+  margin-inline: 5vw;
+  padding-inline: 2vw;
+  display: grid;
+  grid-template-columns: repeat(10, auto);
+}
+.chart-container-3 {
+  z-index: 1000;
+  opacity: 5%;
+  position: relative;
+  grid-row: 2;
+  margin-inline: 5vw;
+  background-color: rgb(0, 0, 0);
+  background-image: linear-gradient(
+    transparent 50%,
+    rgba(255, 255, 255, 0.5) 50%
+  );
+  background-size: 1vh 1vh;
+  mix-blend-mode: darken;
+}
+
+.chart-column {
+  margin-top: 4vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+
+  border-bottom: var(--clr-white) 0.1vh solid;
+}
+
+.score {
+  display: inline-block;
+  margin: auto;
+  position: relative;
+  color: var(--clr-white);
+  font-size: calc((2vw + 2vh) / 2);
+  overflow: hidden;
+  margin-bottom: 1vh;
+  padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 5vw;
+}
+
+.chartgrid {
+  text-align: center;
+  display: grid;
+}
+
+.teamname-container {
+  z-index: 2;
+  position: relative;
+  grid-row: 3;
+  margin-inline: 5vw;
+  padding-inline: 2vw;
+  display: grid;
+  grid-template-columns: repeat(10, auto);
+}
+
+.rectangle {
+  margin-inline: 0.6vw;
+  border-top-right-radius: 0.4vw;
+  border-top-left-radius: 0.4vw; 
+  transform: 1s ease;
+  height: fit-content;
+  width: fit-content;
+}
+
+
+.teamname-box {
+  align-self: center;
+  padding-inline: 2vw;
+  padding-block: 2vh;
+  margin-inline: 0.5vw;
+  margin-block: 3vh;
+  border-radius: 0.4vw;
+  background-color: rgba(0, 0, 0, 0.452);
+  overflow-y: hidden;
+}
+
+.teamname {
+  align-self: center;
+  margin-block: auto;
+  word-break: break-word;
+  color: var(--clr-white);
+  font-size: calc((1.6vw + 1.6vh) / 2);
+}
