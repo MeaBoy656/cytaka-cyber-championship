@@ -4,16 +4,16 @@ import Chart from "./components/Chart";
 import TeamName from "./components/TeamName";
 
 const ldata = [
-  { label: "301", y: 0 },
-  { label: "302", y: 90 },
-  { label: "303", y: 100 },
-  { label: "304", y: 150 },
-  { label: "305", y: 300 },
-  { label: "306", y: 0 },
-  { label: "307", y: 0 },
-  { label: "308", y: 0},
-  { label: "309", y: 0 },
-  { label: "310", y: 0 },
+  { label: "Team 301", y: 0 },
+  { label: "Team 302", y: 0 },
+  { label: "Team 303", y: 0 },
+  { label: "Team 304", y: 0 },
+  { label: "Team 305", y: 0 },
+  { label: "Team 306", y: 0 },
+  { label: "Team 307", y: 0 },
+  { label: "Team 308", y: 0},
+  { label: "Team 309", y: 0 },
+  { label: "Team 310", y: 0 },
 ];
 
 function App() {
