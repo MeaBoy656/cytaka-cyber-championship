@@ -5,14 +5,17 @@ import TeamName from "./components/TeamName";
 
 const ldata = [
   { label: "Guy kaplan", y: 100 },
-  { label: "Mike Ksogan", y: 70 },
+  { label: "Mike Kogan", y: 70 },
   { label: "Mark Segal", y: 20},
   { label: "Itzik Naim", y: 0 },
   { label: "Nisim Ben Saadon", y: 0 },
+  { label: "Itai Karas", y: 0 },
+  { label: "Nitzan Shwartz", y: 0 },
   { label: "Daniel Bresler", y: 0 },
   { label: "Max Zabuty", y: 0 },
   { label: "Roie Maoz", y: 0 },
   { label: "Ron Resnik", y: 0 },
+  { label: "Itay Meirson", y: 0 },
   { label: "Ariel Ben", y: 0 },
 ];
 
@@ -21,14 +24,17 @@ function App() {
   const [data, setData] = useState(ldata);
   // const prevDataRef = useRef(data);
   const [tallestHeights, setTallestHeights] = useState([[], [], []]);
-
+  const makeGrid = {
+    display: "grid",
+    gridTemplateColumns: `repeat(${data.length.toString()}, 1fr)`,
+  };
   // useEffect(() => {
   //   prevDataRef.current = ldata;
   //   setData(() => {
   //     return [...prevDataRef.current];
   //   });
   // }, [ldata]);
-  console.log(data);
+  // console.log(data);
 
   useEffect(() => {
     const heightsArray = data.map((item) => item.y);
@@ -56,6 +62,7 @@ function App() {
   useEffect(() => {
     setInterval(() => {
       let rdata = data;
+      console.log("trying to fetch...");
       fetch("http://52.186.51.196:8008/shares")
         .then((response) => response.json())
         .then((data) => {
@@ -68,6 +75,7 @@ function App() {
               console.log(data);
             } catch {
               console.log(element);
+              console.log("fetch sucsseful");
             }
           });
           setData([...rdata]);
@@ -85,7 +93,7 @@ function App() {
         <h1 className="title">{"Cytaka Cyber Championship"}</h1>
         <div className="title-background"></div>
       </header>
-      <div className="glow">
+      <div className="glow" style={makeGrid}>
         {data.map((chartData, index) => (
           <Chart
             key={index}
@@ -96,7 +104,7 @@ function App() {
           />
         ))}
       </div>
-      <div className="chart-container">
+      <div className="chart-container" style={makeGrid}>
         {data.map((chartData, index) => (
           <div className="chartgrid" key={index}>
             <Chart
@@ -108,7 +116,7 @@ function App() {
           </div>
         ))}
       </div>
-      <div className="teamname-container">
+      <div className="teamname-container" style={makeGrid}>
         {data.map((chartData, index) => (
           <div className="chartgrid" key={index}>
             <TeamName data={data} chartData={chartData} />

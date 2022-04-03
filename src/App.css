@@ -4,7 +4,9 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Source Code Pro", monospace;
+  font-family: "Source Code Pro", monospace; 
+ 
+  /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
   font-weight: 400;
   overflow-x: hidden;
 }
@@ -49,11 +51,13 @@ body {
 }
 
 .title-background {
-  margin-inline: auto;
+  align-self: flex-end;
+  opacity: 10%;
   grid-row: 2;
-  width: calc((58vw + 58vh) / 2);
-  height: calc((6vw + 6vh) / 2);;
-  background-color: var(--clr-dark);
+  width: calc((70vw + 70vh) / 2);
+  height: calc((2vw + 2vh) / 2);;
+  background-color: var(--clr-white);
+  /* mix-blend-mode: color-dodge; */
 }
 
 #logo {
@@ -67,17 +71,12 @@ body {
 
 .title-container > .title {
   grid-row: 2;
-  align-self: center;
+  margin-inline: auto;
   font-size: calc((4vw + 4vh) / 2);
-  font-weight: 600;
+  font-weight: var(--fw-bold);
   position: relative;
-  padding: 0.3em;
-  height: fit-content;
-  text-align: center;
   color: var(--clr-white);
-  width: fit-content;
-  text-align: center;
-  color: var(--clr-white);
+  letter-spacing: 0.2vw;
 }
 
 .glow,
@@ -104,15 +103,12 @@ body {
   grid-row: 2;
   margin-inline: 5vw;
   padding-inline: 2vw;
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
 }
 .chart-container-3 {
   z-index: 1000;
   opacity: 5%;
   position: relative;
   grid-row: 2;
-  margin-inline: 5vw;
   background-color: rgb(0, 0, 0);
   background-image: linear-gradient(
     transparent 50%,
@@ -127,7 +123,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: end;
-
   border-bottom: var(--clr-white) 0.1vh solid;
 }
 
@@ -150,16 +145,6 @@ body {
   display: grid;
 }
 
-.teamname-container {
-  z-index: 2;
-  position: relative;
-  grid-row: 3;
-  margin-inline: 5vw;
-  padding-inline: 2vw;
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-}
-
 .rectangle {
   margin-inline: 0.6vw;
   border-top-right-radius: 0.4vw;
@@ -169,11 +154,22 @@ body {
   width: fit-content;
 }
 
+.teamname-container {
+  z-index: 2;
+  position: relative;
+  grid-row: 3;
+  margin-inline: 5vw;
+  padding-inline: 2vw;
+  display: grid;
+  grid-template-columns: repeat(13, 1fr);
+}
+
 .teamname-box {
+  flex-shrink: 1;
   align-self: center;
-  padding-inline: 0.7vw;
+  padding-inline: 0.2vw;
   padding-block: 2vh;
-  margin-inline: 0.5vw;
+  margin-inline: 0.2vw;
   margin-block: 3vh;
   border-radius: 0.4vw;
   background-color: rgba(0, 0, 0, 0.452);
@@ -185,5 +181,5 @@ body {
   /* margin-block: auto; */
   word-break: break-word;
   color: var(--clr-white);
-  font-size: calc((1.6vw + 1.6vh) / 2);
+  font-size: calc((1.4vw + 1.4vh) / 2);
 }

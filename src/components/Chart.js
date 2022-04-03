@@ -1,12 +1,15 @@
-import React, { useEffect, useState, useRef} from "react";
+import React, { useEffect, useState, useRef } from "react";
 
-const Chart = ({ chartData, tallestHeights }) => {
+const Chart = ({ chartData, tallestHeights, data }) => {
   const currentChartHeight = chartData.y;
   const [gredientArray, setGredientArray] = useState([]);
   const [textColor, setTextColor] = useState();
 
   const setGredient = () => {
-    if (tallestHeights[0][0] === currentChartHeight && tallestHeights[0][0] !== 0) {
+    if (
+      tallestHeights[0][0] === currentChartHeight &&
+      tallestHeights[0][0] !== 0
+    ) {
       setGredientArray(["#8E3426", "#FFA500", "#FFFF00"]);
       setTextColor("#FFFF00");
     } else if (tallestHeights[1][0] === currentChartHeight) {
@@ -32,7 +35,9 @@ const Chart = ({ chartData, tallestHeights }) => {
   const chartStyle = {
     width: "auto",
     height: `${
-      tallestHeights[0][0] && (currentChartHeight / tallestHeights[0][0] <= 0.05) ? "2" : (currentChartHeight / tallestHeights[0][0]) * 100
+      tallestHeights[0][0] && currentChartHeight / tallestHeights[0][0] <= 0.05
+        ? "2"
+        : (currentChartHeight / tallestHeights[0][0]) * 100
     }%`,
     backgroundImage: `linear-gradient(15deg, ${gredientArray[0]} 20%, ${gredientArray[1]} 78%, ${gredientArray[2]} 110%)`,
     transition: "height 3s ease-out",
