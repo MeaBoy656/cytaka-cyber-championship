@@ -4,10 +4,10 @@ import Chart from "./components/Chart";
 import TeamName from "./components/TeamName";
 
 const ldata = [
-  { label: "Guy kaplan", y: 100 },
-  { label: "Mike Kogan", y: 70 },
-  { label: "Mark Segal", y: 20},
-  { label: "Itzik Naim", y: 0 },
+  { label: "Guy kaplan", y: 0 },
+  { label: "Mike Kogan", y: 100 },
+  { label: "Mark Segal", y: 200 },
+  { label: "Itzik Naim", y: 50 },
   { label: "Nisim Ben Saadon", y: 0 },
   { label: "Itai Karas", y: 0 },
   { label: "Nitzan Shwartz", y: 0 },
@@ -16,6 +16,7 @@ const ldata = [
   { label: "Roie Maoz", y: 0 },
   { label: "Ron Resnik", y: 0 },
   { label: "Itay Meirson", y: 0 },
+  { label: "Ariel Ben", y: 0 },
   { label: "Ariel Ben", y: 0 },
 ];
 
@@ -67,7 +68,7 @@ function App() {
         .then((response) => response.json())
         .then((data) => {
           console.log("Interval is running");
-          data.forEach((element) => {     
+          data.forEach((element) => {
             try {
               rdata[element.id - 1].label = element.company_id;
               rdata[element.id - 1].y = parseInt(element.score);
@@ -96,10 +97,9 @@ function App() {
       <div className="glow" style={makeGrid}>
         {data.map((chartData, index) => (
           <Chart
+            isGlow={true}
             key={index}
-            index={index}
             chartData={chartData}
-            data={data}
             tallestHeights={tallestHeights}
           />
         ))}
@@ -108,6 +108,7 @@ function App() {
         {data.map((chartData, index) => (
           <div className="chartgrid" key={index}>
             <Chart
+              isGlow={false}
               index={index}
               chartData={chartData}
               data={data}
@@ -118,7 +119,7 @@ function App() {
       </div>
       <div className="teamname-container" style={makeGrid}>
         {data.map((chartData, index) => (
-          <div className="chartgrid" key={index}>
+          <div className="name-chartgrid" key={index}>
             <TeamName data={data} chartData={chartData} />
           </div>
         ))}

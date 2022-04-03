@@ -5,8 +5,6 @@
   margin: 0;
   padding: 0;
   font-family: "Source Code Pro", monospace; 
- 
-  /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
   font-weight: 400;
   overflow-x: hidden;
 }
@@ -22,7 +20,7 @@
 
 body {
   font-weight: var(--fw-reqular);
-  background-color: #0e0d0a;
+  background-color: #000000;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -39,9 +37,7 @@ body {
 
 .title-container {
   display: grid;
-  grid-template-rows: repeat(2, auto);
   margin-top: 2vh;
-  align-items: center;
   justify-content: center;
 }
 
@@ -52,28 +48,25 @@ body {
 
 .title-background {
   align-self: flex-end;
-  opacity: 10%;
+  opacity: 15%;
   grid-row: 2;
   width: calc((70vw + 70vh) / 2);
   height: calc((2vw + 2vh) / 2);;
   background-color: var(--clr-white);
-  /* mix-blend-mode: color-dodge; */
 }
 
 #logo {
   margin-inline: auto;
   grid-row: 1;
-  align-self: center;
   position: relative;
   width: calc((35vw + 20vh) / 2);
-  height: initial;
 }
 
 .title-container > .title {
   grid-row: 2;
   margin-inline: auto;
   font-size: calc((4vw + 4vh) / 2);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-reqular);
   position: relative;
   color: var(--clr-white);
   letter-spacing: 0.2vw;
@@ -90,7 +83,7 @@ body {
   z-index: 1;
   opacity: 100%;
   grid-row: 2;
-  margin-inline: 5vw;
+  margin-inline: 1vw;
   padding-inline: 2vw;
   display: grid;
   filter: blur(calc((15vw + 15vh) / 2));
@@ -145,6 +138,11 @@ body {
   text-align: center;
   display: grid;
 }
+.name-chartgrid {
+  text-align: center;
+  display: grid;
+  align-items: center;
+}
 
 .rectangle {
   margin-inline: 0.6vw;
@@ -168,19 +166,21 @@ body {
 .teamname-box {
   flex-shrink: 1;
   align-items: center;
+  opacity: 60%;
   height: 70%;
-  padding-inline: 0.3vw;
+  padding-inline: 0.4vw;
   padding-block: 2vh;
   margin-inline: 0.2vw;
   margin-block: 3vh;
   border-radius: calc((0.4vw + 0.4vh) / 2);
-  background-color: rgba(0, 0, 0, 0.452);
+  /* background-color: rgba(0, 0, 0, 0.452); */
   overflow-y: hidden;
 }
 
 .teamname {
   position: relative;
   height: fit-content;
+  /* opacity: 70%; */
   /* align-self: center; */
   margin-block: auto;
   word-break: break-word;
