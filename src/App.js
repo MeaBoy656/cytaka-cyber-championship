@@ -54,20 +54,26 @@ function App() {
     setInterval(() => {
       let rdata = data;
       console.log("trying to fetch...");
-      fetch("http://52.186.51.196:8008/shares")
-        .then((response) => response.json())
-        .then((data) => {
-          data.forEach((element) => {
-            try {
-              rdata[element.id - 1].label = element.company_id;
-              rdata[element.id - 1].y = parseInt(element.score);
-            } catch {
-              console.log(element);
-              console.log("fetch sucsseful");
-            }
-          });
-          setData([...rdata]);
+      // fetch("http://52.186.51.196:8008/shares")
+      //   .then((response) => response.json())
+      //   .then((data) => {
+      //     data.forEach((element) => {
+      //       try {
+      //         rdata[element.id - 1].label = element.company_id;
+      //         rdata[element.id - 1].y = parseInt(element.score);
+      //       } catch {
+      //         console.log(element);
+      //         console.log("fetch sucsseful");
+      //       }
+      //     });
+      //     setData([...rdata]);
+      //   });
+      setData((prevData) => {
+        return prevData.map(participant => {
+          return {...participant, y: participant.y + Math.round((Math.random() * 10) * 10)}
         });
+      });
+
     }, MINUTE_MS);
   }, []);
 
