@@ -2,25 +2,23 @@ import "./App.css";
 import React, { useEffect, useRef, useState } from "react";
 import Chart from "./components/Chart";
 
-const ldata = [
-  { label: "Guy kaplan", y: 0 },
-  { label: "Mike Kogan", y: 0 },
-  { label: "Mark Segal", y: 0 },
-  { label: "Itzik Naim", y: 0 },
-  { label: "Nisim Ben Saadon", y: 0 },
-  { label: "Itai Karas", y: 0 },
-  { label: "Nitzan Shwartz", y: 0 },
-  { label: "Daniel Bresler", y: 0 },
-  { label: "Max Zabuty", y: 0 },
-  { label: "Roie Maoz", y: 0 },
-  { label: "Ron Resnik", y: 0 },
-  { label: "Itay Meirson", y: 0 },
-  { label: "Ariel Ben", y: 0 },
-];
-
 function App() {
   const MINUTE_MS = 10000;
-  const [data, setData] = useState(ldata);
+  const [data, setData] = useState([
+    { label: "Guy kaplan", y: 0 },
+    { label: "Mike Kogan", y: 0 },
+    { label: "Mark Segal", y: 0 },
+    { label: "Itzik Naim", y: 0 },
+    { label: "Nisim Ben Saadon", y: 0 },
+    { label: "Itai Karas", y: 0 },
+    { label: "Nitzan Shwartz", y: 0 },
+    { label: "Daniel Bresler", y: 0 },
+    { label: "Max Zabuty", y: 0 },
+    { label: "Roie Maoz", y: 0 },
+    { label: "Ron Resnik", y: 0 },
+    { label: "Itay Meirson", y: 0 },
+    { label: "Ariel Ben", y: 0 },
+  ]);
   const [tallestHeights, setTallestHeights] = useState([[], [], []]);
   const makeGrid = {
     display: "grid",
@@ -48,7 +46,7 @@ function App() {
       }
     }
     setTallestHeights(firstPlaces);
-  }, [data, ldata]);
+  }, [data] );
 
   useEffect(() => {
     setInterval(() => {
