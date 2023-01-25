@@ -63,7 +63,7 @@ const Chart = ({ chartData, tallestHeights, isGlow }) => {
         : (currentChartHeight / tallestHeights[0][0]) * 100
     }%`,
     backgroundImage: `linear-gradient(15deg, ${gredientArray[0]} 20%, ${gredientArray[1]} 78%, ${gredientArray[2]} 110%)`,
-    transition: "height 3s ease-out",
+    transition: "height 2s ease-out",
   };
 
   return (

@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Chart from "./components/Chart";
 
 function App() {
-  const MINUTE_MS = 10000;
+  const MINUTE_MS = 2000;
   const [data, setData] = useState([
     { label: "Guy kaplan", y: 0 },
     { label: "Mike Kogan", y: 0 },
@@ -46,32 +46,18 @@ function App() {
       }
     }
     setTallestHeights(firstPlaces);
-  }, [data] );
+  }, data);
 
   useEffect(() => {
+    // the origial code uses fetch to load data, but the server is not longer live
     setInterval(() => {
-      let rdata = data;
+      setData((prevData) =>
+        prevData.map((userData) => ({
+          ...userData,
+          y: userData.y + Math.round(Math.random() * (5 - 0) + 0) * 30,
+        }))
+      );
       console.log("trying to fetch...");
-      // fetch("http://52.186.51.196:8008/shares")
-      //   .then((response) => response.json())
-      //   .then((data) => {
-      //     data.forEach((element) => {
-      //       try {
-      //         rdata[element.id - 1].label = element.company_id;
-      //         rdata[element.id - 1].y = parseInt(element.score);
-      //       } catch {
-      //         console.log(element);
-      //         console.log("fetch sucsseful");
-      //       }
-      //     });
-      //     setData([...rdata]);
-      //   });
-      setData((prevData) => {
-        return prevData.map(participant => {
-          return {...participant, y: participant.y + Math.round((Math.random() * 10) * 10)}
-        });
-      });
-
     }, MINUTE_MS);
   }, []);
 
