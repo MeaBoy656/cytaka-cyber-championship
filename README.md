@@ -1,6 +1,6 @@
 Hello🙂
 
-# Welcome the "Cytaka Scoreboard" project #
+# Welcome to the "Cytaka Scoreboard" project #
 
 Thanks for stopping by.
 
